@@ -1,0 +1,27 @@
+﻿{
+    "version": "0.1.1-beta8",
+    "description": "Lohmann.HALight Class Library",
+    "authors": [ "Oliver Lohmann (olohmann@gmail.com)" ],
+    "tags": [ "AspNet Mvc AspNetMvc" ],
+    "projectUrl": "https://github.com/olohmann/Lohmann.HALight/",
+    "summary": "A simple HAL formatter for ASP.NET 5 - MVC 6",
+    "licenseUrl": "https://github.com/olohmann/Lohmann.HALight/blob/master/LICENSE",
+    "dependencies": {
+        "Newtonsoft.Json": "7.0.1",
+        "Microsoft.AspNet.Mvc": "6.0.0-beta8",        
+        "Microsoft.Net.Http.Headers": "1.0.0-beta8"
+    },
+    "frameworks": {
+        "dnx451": { },
+        "dnxcore50": {
+            "dependencies": {
+                "Microsoft.CSharp": "4.0.1-beta-23409",
+                "System.Collections": "4.0.11-beta-23409",
+                "System.Linq": "4.0.1-beta-23409",
+                "System.Runtime": "4.0.21-beta-23409",
+                "System.Threading": "4.0.11-beta-23409",
+                "System.Text.RegularExpressions": "4.0.11-beta-23409"
+            }
+        }
+    }
+}

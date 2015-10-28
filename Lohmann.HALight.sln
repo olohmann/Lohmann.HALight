@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D7AC16AD-EADB-46E0-A0EE-B27D3BF92C39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1AAA427F-7937-4A8E-B4E8-0BA1C07391E0}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Lohmann.HALight", "src\Lohmann.HALight\Lohmann.HALight.xproj", "{5B24AE98-2C8D-4A90-AB06-BC4B0E7583AD}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Lohmann.HALight.UnitTests", "src\Lohmann.HALight.UnitTests\Lohmann.HALight.UnitTests.xproj", "{650A5A85-5956-491E-9312-5E25A27D1108}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B24AE98-2C8D-4A90-AB06-BC4B0E7583AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B24AE98-2C8D-4A90-AB06-BC4B0E7583AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B24AE98-2C8D-4A90-AB06-BC4B0E7583AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B24AE98-2C8D-4A90-AB06-BC4B0E7583AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{650A5A85-5956-491E-9312-5E25A27D1108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{650A5A85-5956-491E-9312-5E25A27D1108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{650A5A85-5956-491E-9312-5E25A27D1108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{650A5A85-5956-491E-9312-5E25A27D1108}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B24AE98-2C8D-4A90-AB06-BC4B0E7583AD} = {D7AC16AD-EADB-46E0-A0EE-B27D3BF92C39}
+		{650A5A85-5956-491E-9312-5E25A27D1108} = {D7AC16AD-EADB-46E0-A0EE-B27D3BF92C39}
+	EndGlobalSection
+EndGlobal
