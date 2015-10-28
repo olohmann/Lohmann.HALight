@@ -1,5 +1,5 @@
 ﻿{
-    "version": "0.1.1-beta8",
+    "version": "0.1.2-beta8",
     "description": "Lohmann.HALight Class Library",
     "authors": [ "Oliver Lohmann (olohmann@gmail.com)" ],
     "tags": [ "AspNet Mvc AspNetMvc" ],

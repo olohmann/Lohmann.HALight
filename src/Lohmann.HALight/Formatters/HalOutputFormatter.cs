@@ -23,8 +23,8 @@ namespace Lohmann.HALight.Formatters
 
         protected override bool CanWriteType(Type declaredType, Type runtimeType)
         {
-            // TODO, CanWriteType(Type declaredType, Type runtimeType)?
-            return typeof(IResource).GetTypeInfo().IsAssignableFrom(declaredType.GetTypeInfo());
+            // TODO, CanWriteType(Type declaredType, Type runtimeType) => Bug in Beta-8?
+            return typeof(IResource).GetTypeInfo().IsAssignableFrom(runtimeType.GetTypeInfo());
         }        
     }
 }
