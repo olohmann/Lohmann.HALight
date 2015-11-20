@@ -17,8 +17,31 @@ install-package Lohmann.HALight
 ## Usage
 
 In your Startup.cs:
-```
+```csharp
+public class Startup
+{
+    // ...
+    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options =>
+        {
+            options.InputFormatters.Add(new HalInputFormatter());
+            options.OutputFormatters.Add(new HalOutputFormatter());
+        });
 
+        // ...
+    }
+    
+    // ...
+    
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+    {
+        // ...
+        app.UseMvc();
+        // ...    
+    }
+}
 ```
 
 In your resource model:
