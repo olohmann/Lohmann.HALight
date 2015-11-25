@@ -21,10 +21,9 @@ namespace Lohmann.HALight.Formatters
             SupportedMediaTypes.Add(new MediaTypeHeaderValue(HalJsonSerializerSettingsProvider.HalMediaType));
         }
 
-        protected override bool CanWriteType(Type declaredType, Type runtimeType)
+        protected override bool CanWriteType(Type type)
         {
-            // TODO, CanWriteType(Type declaredType, Type runtimeType) => Bug in Beta-8?
-            return typeof(IResource).GetTypeInfo().IsAssignableFrom(runtimeType.GetTypeInfo());
+            return typeof(IResource).GetTypeInfo().IsAssignableFrom(type.GetTypeInfo());
         }        
     }
 }

@@ -6,10 +6,10 @@
   "projectUrl": "",
   "licenseUrl": "",
     "dependencies": {
-        "Lohmann.HALight": "0.1.2-beta8",
+        "Lohmann.HALight": "0.1.3-rc1",
         "Newtonsoft.Json": "7.0.1",
-        "xunit": "2.1.0",
-        "xunit.runner.dnx": "2.1.0-beta6-build191"
+        "xunit": "2.1.0-*",
+        "xunit.runner.dnx": "2.1.0-*"
     },
   "commands": {
     "test": "xunit.runner.dnx"
@@ -19,12 +19,12 @@
     "dnx451": { },
     "dnxcore50": {
             "dependencies": {
-                "Microsoft.CSharp": "4.0.1-beta-23409",
-                "System.Collections": "4.0.11-beta-23409",
-                "System.Linq": "4.0.1-beta-23409",
-                "System.Runtime": "4.0.21-beta-23409",
-                "System.Threading": "4.0.11-beta-23409",
-                "System.Text.RegularExpressions": "4.0.11-beta-23409"
+                "Microsoft.CSharp": "4.0.1-beta",
+                "System.Collections": "4.0.11-beta",
+                "System.Linq": "4.0.1-beta",
+                "System.Runtime": "4.0.21-beta",
+                "System.Threading": "4.0.11-beta",
+                "System.Text.RegularExpressions": "4.0.11-beta"
             }
         }
   }
