@@ -85,7 +85,7 @@ namespace Lohmann.HALight.Converters
                 var value = nonResourceProperty.GetValue(currentResource);
                 if (value != null && value.GetType().GetTypeInfo().IsClass && value.GetType() != typeof(string))
                 {
-                    node.Add(ToCamelCase(nonResourceProperty.Name), JToken.FromObject(value));
+                    node.Add(ToCamelCase(nonResourceProperty.Name), JToken.FromObject(value, serializer));
                 }
                 else
                 {

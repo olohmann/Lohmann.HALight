@@ -1,5 +1,6 @@
 using Lohmann.HALight.Converters;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Lohmann.HALight.Formatters.Internal
 {
@@ -22,7 +23,7 @@ namespace Lohmann.HALight.Formatters.Internal
             {
                 
                 MissingMemberHandling = MissingMemberHandling.Ignore,
-
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 // Limit the object graph we'll consume to a fixed depth. This prevents stackoverflow exceptions
                 // from deserialization errors that might occur from deeply nested objects.
                 MaxDepth = DefaultMaxDepth,
