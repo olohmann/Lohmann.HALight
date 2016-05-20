@@ -47,7 +47,7 @@ public class Startup
 ```
 
 In your resource model:
-```
+```csharp
 using Lohmann.HALight;
 
 public class UserResource : Resource
@@ -59,7 +59,7 @@ public class UserResource : Resource
 ```
 
 In your controller:
-```
+```csharp
 public class UsersController : Controller
 {
     private readonly UserRepository _repository;
