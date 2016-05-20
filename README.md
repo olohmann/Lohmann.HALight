@@ -1,12 +1,9 @@
 # Lohmann.HALight
 
-> A simple [HAL](http://stateless.co/hal_specification.html) formatter for ASP.NET 5 - MVC 6.
+> A simple [HAL](http://stateless.co/hal_specification.html) formatter for ASP.NET Core MVC.
 
 **Note:**
 This is a port of my [ASP.NET WebApi 2 implementation](https://github.com/olohmann/WebApi.HALight).
-
-**Note:**
-A more in-depth usage sample should follow soon.
 
 ## Installation
 Install via NuGet:
@@ -16,30 +13,35 @@ install-package Lohmann.HALight
 
 ## Usage
 
+**Note**: There is a sample in the repo to help you getting started.
+
 In your Startup.cs:
 ```csharp
 public class Startup
 {
-    // ...
-    
-    public void ConfigureServices(IServiceCollection services)
+    private readonly ILoggerFactory _loggerFactory;
+
+    public Startup(IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
+        _loggerFactory = loggerFactory;
+    }
+
+    public void ConfigureServices(
+        IServiceCollection services)
+    {
+        var logger = _loggerFactory.CreateLogger<HalInputFormatter>();
         services.AddMvc(options =>
-        {
-            options.InputFormatters.Add(new HalInputFormatter());
+        {                
+            options.InputFormatters.Add(new HalInputFormatter(logger));
             options.OutputFormatters.Add(new HalOutputFormatter());
         });
-
-        // ...
     }
-    
-    // ...
-    
+
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-    {
+    {            
         // ...
+
         app.UseMvc();
-        // ...    
     }
 }
 ```

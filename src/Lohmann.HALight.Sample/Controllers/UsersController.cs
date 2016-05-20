@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Lohmann.HALight.Sample.Controllers.Ressources;
 using Lohmann.HALight.Sample.Model;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Lohmann.HALight.Sample.Controllers
 {
@@ -24,20 +24,21 @@ namespace Lohmann.HALight.Sample.Controllers
                 .Select(c => new UserResource
                 {
                     Id = c.Id,
-                    Name = c.Name
+                    Name = c.Name,
+                    Relations = new Relations() {  }                                        
                 })
                 .ToList();
+
+            foreach (var resource in userResources)
+            {
+                var selfLink = Link.CreateSelfLink(Url.Link("UserDetailsRoute", new {id = resource.Id}));
+                resource.Relations.Add(selfLink);
+            }
 
             var userListResource = new UserListResource
             {
                 Items = userResources
             };
-
-            foreach (var resource in userResources)
-            {
-                var selfLink = Link.CreateSelfLink(Url.Link("UserDetailsRoute", new {id = resource.Id}));
-                userListResource.Relations.Add(Link.CreateLink("user", selfLink.Href));
-            }
 
             userListResource.Relations.Add(
                 Link.CreateSelfLink(Url.Link("UsersRoute", new {})));
@@ -53,7 +54,7 @@ namespace Lohmann.HALight.Sample.Controllers
 
             if (user == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
 
             var userDetailResource = new UserDetailResource

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Lohmann.HALight.Converters;
 using Newtonsoft.Json;
-using Xunit;
 using Newtonsoft.Json.Serialization;
+using Xunit;
 
 namespace Lohmann.HALight.UnitTests
 {

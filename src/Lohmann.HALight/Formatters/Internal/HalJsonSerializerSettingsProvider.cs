@@ -21,9 +21,14 @@ namespace Lohmann.HALight.Formatters.Internal
         {
             var settings = new JsonSerializerSettings
             {
-                
-                MissingMemberHandling = MissingMemberHandling.Ignore,
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
+
+                NullValueHandling  = NullValueHandling.Ignore,
+
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                
                 // Limit the object graph we'll consume to a fixed depth. This prevents stackoverflow exceptions
                 // from deserialization errors that might occur from deeply nested objects.
                 MaxDepth = DefaultMaxDepth,

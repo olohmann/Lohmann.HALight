@@ -18,10 +18,7 @@
             _links.Add(link);    
         }
 
-        public IEnumerable<Link> Links
-        {
-            get { return _links; }
-        }
+        public IEnumerable<Link> Links => _links;
 
         #region Equals Support
         public override bool Equals(object other)
