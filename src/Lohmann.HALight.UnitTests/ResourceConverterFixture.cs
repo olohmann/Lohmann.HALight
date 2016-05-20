@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Lohmann.HALight.Converters;
 using Newtonsoft.Json;
 using Xunit;
+using Newtonsoft.Json.Serialization;
 
 namespace Lohmann.HALight.UnitTests
 {
@@ -13,6 +14,13 @@ namespace Lohmann.HALight.UnitTests
         {
             public string FirstName { get; set; }
             public List<string> Values { get; set; }
+            public NestedObject NestedObject { get; set; }
+        }
+
+        public class NestedObject
+        {
+            public string NestedString { get; set; }
+            public int NestedInt { get; set; }
         }
 
         public class MetaResource : Resource
@@ -65,5 +73,36 @@ namespace Lohmann.HALight.UnitTests
             Assert.Equal(userCollectionResource.Items.ElementAt(0).Relations, deserializedResources.Items.ElementAt(0).Relations);
             Assert.Equal(serializedResources, serializedDeserializedResources);
         }
+        [Fact]
+        public void VerifyNestedObject()
+        {
+            // Arrange
+            var userResource = new UserResource()
+            {
+                FirstName = "Hans",
+                Values = new List<string>()
+                {
+                    "One",
+                    "Two"
+                },
+                NestedObject = new NestedObject()
+                {
+                    NestedString = "nested string",
+                    NestedInt = 100
+                }
+            };
+
+
+            // Act
+            var jsonSerializationSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
+            jsonSerializationSettings.Converters.Add(new RelationsConverter());
+            jsonSerializationSettings.Converters.Add(new ResourceConverter());
+
+            string serializedResources = JsonConvert.SerializeObject(userResource, jsonSerializationSettings);
+            Assert.Contains("nestedObject", serializedResources);
+            Assert.Contains("nestedString", serializedResources);
+            Assert.Contains("nestedInt", serializedResources);
+        }
+
     }
 }
